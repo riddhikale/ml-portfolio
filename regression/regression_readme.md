@@ -13,7 +13,7 @@ and furnishing status.
 
 Rent varies enormously across this dataset - from ₹1,200 to ₹35,00,000 - with 75% of properties renting under ₹33,000. This heavy right-skew meant a small number of luxury properties dominated the model's error during training, badly hurting prediction accuracy on typical homes.
 
-## Approach
+### Approach
 
 1. Exploratory data analysis on rent distribution, city-wise patterns, and
    feature correlations.
@@ -25,3 +25,13 @@ Rent varies enormously across this dataset - from ₹1,200 to ₹35,00,000 - wit
 4. Trained a Linear Regression model on the log-transformed target.
 5. Converted predictions back to real rupees using `expm1` before evaluating,
    so metrics are interpretable in actual currency.
+
+### Key Results
+
+| Metric | Before Log Transform | After Log Transform |
+| ------ | -------------------- | ------------------- |
+| RMSE   | ₹43,654              | ₹30,891             |
+| R²     | 0.52                 | 0.76                |
+
+Applying the log transform reduced RMSE by ~29% and raised R² from 0.52 to
+0.76, confirming that outlier-driven skew was a major source of model error.
