@@ -115,3 +115,40 @@ misleading metric here, and precision/recall/F1 matter far more.
    missing a customer about to churn is more costly than a false alarm.
 10. Interpreted coefficients and validated them with controlled hypothetical
     predictions.
+
+### Key Results
+
+| Metric    | Threshold 0.5 | Threshold 0.3 |
+| --------- | ------------- | ------------- |
+| Accuracy  | 0.81          | 0.79          |
+| Precision | 0.59          | 0.49          |
+| Recall    | 0.19          | 0.52          |
+| F1 Score  | 0.28          | 0.50          |
+
+Lowering the threshold nearly tripled recall (0.19 → 0.52), a meaningful
+improvement, but recall still misses roughly half of true churners — a
+genuine limitation of this model (see Conclusion).
+
+### Key Insights
+
+- **Age** is the strongest predictor of churn — older customers are
+  significantly more likely to leave.
+- **IsActiveMember** has a strong negative effect — actively engaged customers
+  are far less likely to churn, a directly actionable insight for retention
+  strategy.
+- **Geography_Germany** shows notably higher churn risk compared to the
+  baseline (France).
+- A controlled prediction experiment (varying only Age, IsActiveMember, and
+  Geography_Germany, holding all else constant) showed predicted churn
+  probability swinging from 78% (high-risk profile) to 6% (low-risk profile) —
+  confirming the model's coefficients translate into consistent, sensible
+  real-world behavior.
+
+### Conclusion
+
+Logistic Regression achieved reasonable overall accuracy but struggled with
+recall, even after threshold tuning — likely because churn depends on
+non-linear combinations of features (e.g., older AND inactive AND high
+balance together) that a linear decision boundary can't fully capture. This
+points to tree-based models (Decision Tree, Random Forest) as a natural next
+step for improving churn detection.
