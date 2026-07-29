@@ -1,5 +1,14 @@
 # Machine Learning Portfolio
 
+![Python](https://img.shields.io/badge/Python-3.11+-3776AB?style=for-the-badge&logo=python&logoColor=white)
+![Scikit-Learn](https://img.shields.io/badge/Scikit--Learn-1.0+-F7931E?style=for-the-badge&logo=scikitlearn&logoColor=white)
+![XGBoost](https://img.shields.io/badge/XGBoost-ML-EC6B23?style=for-the-badge)
+![Pandas](https://img.shields.io/badge/Pandas-Data%20Analysis-150458?style=for-the-badge&logo=pandas&logoColor=white)
+![NumPy](https://img.shields.io/badge/NumPy-Numerical%20Computing-013243?style=for-the-badge&logo=numpy&logoColor=white)
+![License: MIT](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)
+![GitHub last commit](https://img.shields.io/github/last-commit/riddhikale/ML-PORTFOLIO?style=for-the-badge)
+![Repo Size](https://img.shields.io/github/repo-size/riddhikale/ML-PORTFOLIO?style=for-the-badge)
+
 A curated collection of end-to-end Machine Learning projects covering **Regression, Classification, Clustering, and Dimensionality Reduction (PCA)** using real-world datasets. This repository demonstrates the complete machine learning workflow—from data preprocessing and exploratory analysis to model building, evaluation, and comparison across multiple algorithms.
 
 ---
@@ -87,7 +96,7 @@ ML-PORTFOLIO/
 
 ---
 
-# 🛠️ Tech Stack
+## 🛠️ Tech Stack
 
 - Python
 - NumPy
@@ -100,7 +109,7 @@ ML-PORTFOLIO/
 
 ---
 
-# 📚 Skills Demonstrated
+## 📚 Skills Demonstrated
 
 - Exploratory Data Analysis (EDA)
 - Data Cleaning & Preprocessing
@@ -115,7 +124,7 @@ ML-PORTFOLIO/
 
 ---
 
-# ⚡ Installation
+## ⚡ Installation
 
 Clone the repository
 
@@ -137,13 +146,13 @@ pip install -r requirements.txt
 
 ---
 
-# 📄 License
+## 📄 License
 
 This project is licensed under the MIT License.
 
 ---
 
-# 👩‍💻 Author
+## 👩‍💻 Author
 
 **Riddhi Kale**
 
