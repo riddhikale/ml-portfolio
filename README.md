@@ -1,10 +1,10 @@
 # Machine Learning Portfolio
 
-> A curated collection of end-to-end Machine Learning projects covering **Regression, Classification, Clustering, and Dimensionality Reduction (PCA)** using real-world datasets. This repository demonstrates the complete machine learning workflow—from data preprocessing and exploratory analysis to model building, evaluation, and comparison across multiple algorithms.
+A curated collection of end-to-end Machine Learning projects covering **Regression, Classification, Clustering, and Dimensionality Reduction (PCA)** using real-world datasets. This repository demonstrates the complete machine learning workflow—from data preprocessing and exploratory analysis to model building, evaluation, and comparison across multiple algorithms.
 
 ---
 
-# 📂 Repository Structure
+## 📂 Repository Structure
 
 ```text
 ML-PORTFOLIO/
@@ -42,9 +42,9 @@ ML-PORTFOLIO/
 
 ---
 
-# 🚀 Projects
+## 🚀 Projects
 
-## 📊 Regression
+### 📊 Regression
 
 | Project                   | Algorithms                                       | Objective                                               |
 | ------------------------- | ------------------------------------------------ | ------------------------------------------------------- |
@@ -55,7 +55,7 @@ ML-PORTFOLIO/
 
 ---
 
-## 🎯 Classification
+### 🎯 Classification
 
 | Project                       | Algorithms                         | Objective                                           |
 | ----------------------------- | ---------------------------------- | --------------------------------------------------- |
@@ -68,7 +68,7 @@ ML-PORTFOLIO/
 
 ---
 
-## 🔍 Clustering
+### 🔍 Clustering
 
 | Project                 | Algorithm | Objective                                            |
 | ----------------------- | --------- | ---------------------------------------------------- |
@@ -78,58 +78,12 @@ ML-PORTFOLIO/
 
 ---
 
-## 📉 Dimensionality Reduction
+### 📉 Dimensionality Reduction
 
 | Project                    | Technique | Objective                                              |
 | -------------------------- | --------- | ------------------------------------------------------ |
 | Country Data Visualization | PCA       | Reduce high-dimensional country data for visualization |
 | Credit Card Fraud Analysis | PCA       | Apply dimensionality reduction before machine learning |
-
----
-
-# 🧠 Machine Learning Algorithms Covered
-
-### Regression
-
-- Linear Regression
-- Polynomial Regression
-- Ridge Regression
-- Lasso Regression
-- Decision Tree Regressor
-- Random Forest Regressor
-- XGBoost Regressor
-
-### Classification
-
-- Logistic Regression
-- Decision Tree Classifier
-- Random Forest Classifier
-- Support Vector Machine (SVM)
-- K-Nearest Neighbors (KNN)
-- XGBoost Classifier
-
-### Unsupervised Learning
-
-- K-Means Clustering
-- DBSCAN
-- Principal Component Analysis (PCA)
-
----
-
-# ⚙️ Workflow
-
-Every notebook follows a complete machine learning pipeline:
-
-- Data Loading
-- Exploratory Data Analysis (EDA)
-- Data Cleaning
-- Feature Engineering
-- Data Preprocessing
-- Model Training
-- Hyperparameter Tuning (where applicable)
-- Model Evaluation
-- Performance Comparison
-- Key Insights
 
 ---
 
