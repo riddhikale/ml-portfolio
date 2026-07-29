@@ -87,33 +87,6 @@ ML-PORTFOLIO/
 
 ---
 
-# 📈 Evaluation Metrics
-
-### Classification
-
-- Accuracy
-- Precision
-- Recall
-- F1 Score
-- ROC-AUC Score
-- Confusion Matrix
-- Classification Report
-
-### Regression
-
-- Mean Absolute Error (MAE)
-- Mean Squared Error (MSE)
-- Root Mean Squared Error (RMSE)
-- R² Score
-
-### Clustering
-
-- Inertia
-- Silhouette Score
-- Cluster Visualization
-
----
-
 # 🛠️ Tech Stack
 
 - Python
@@ -142,34 +115,18 @@ ML-PORTFOLIO/
 
 ---
 
-# 🚧 Future Improvements
-
-- Gradient Boosting
-- AdaBoost
-- CatBoost
-- LightGBM
-- Isolation Forest
-- Time Series Forecasting
-- Natural Language Processing (NLP)
-- Recommendation Systems
-- Deep Learning with TensorFlow & PyTorch
-- Explainable AI (SHAP & LIME)
-- Model Deployment using Flask/FastAPI
-
----
-
 # ⚡ Installation
 
 Clone the repository
 
 ```bash
-git clone https://github.com/your-username/ML-PORTFOLIO.git
+git clone https://github.com/riddhikale/ml-portfolio.git
 ```
 
 Navigate into the project
 
 ```bash
-cd ML-PORTFOLIO
+cd ml-portfolio
 ```
 
 Install the required dependencies
