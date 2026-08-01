@@ -64,3 +64,4 @@ print(classification_report(y_test, y_pred))
 os.makedirs("model", exist_ok=True)
 joblib.dump({"model": model, "scaler": scaler, "features": FEATURES}, "model/churn_model.joblib")
 print("Saved model/churn_model.joblib")
+
