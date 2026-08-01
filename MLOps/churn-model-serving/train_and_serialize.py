@@ -59,3 +59,8 @@ model.fit(X_train_scaled, y_train)
  
 y_pred = model.predict(X_test_scaled)
 print(classification_report(y_test, y_pred))
+
+
+os.makedirs("model", exist_ok=True)
+joblib.dump({"model": model, "scaler": scaler, "features": FEATURES}, "model/churn_model.joblib")
+print("Saved model/churn_model.joblib")
