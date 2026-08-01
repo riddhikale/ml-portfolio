@@ -24,3 +24,4 @@ def predict(payload: dict):
     X_scaled = scaler.transform(X)
     prob = model.predict_proba(X_scaled)[0][1]
     return {"churn_probability": round(float(prob), 4), "churn_prediction": int(prob > 0.5)}
+
