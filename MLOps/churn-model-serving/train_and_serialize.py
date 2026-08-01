@@ -16,3 +16,16 @@ tenure = np.random.randint(0, 15, n)
 balance = np.random.exponential(scale=50000, size=n)
 num_products = np.random.randint(1, 4, n)
 is_active = np.random.binomial(1, 0.6, n)
+
+
+churn_logit = (
+    -0.03 * age
+    - 0.15 * tenure
+    + 0.00002 * balance
+    - 0.4 * num_products
+    - 1.2 * is_active
+    + np.random.normal(0, 1, n)
+)
+
+churn_prob = 1 / (1 + np.exp(-churn_logit))
+churned = (churn_prob > np.median(churn_prob)).astype(int)
