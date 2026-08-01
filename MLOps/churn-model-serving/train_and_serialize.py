@@ -29,3 +29,13 @@ churn_logit = (
 
 churn_prob = 1 / (1 + np.exp(-churn_logit))
 churned = (churn_prob > np.median(churn_prob)).astype(int)
+
+
+df = pd.DataFrame({
+    "age": age,
+    "tenure": tenure,
+    "balance": balance,
+    "num_products": num_products,
+    "is_active": is_active,
+    "churned": churned,
+})
