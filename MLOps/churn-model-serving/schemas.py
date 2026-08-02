@@ -1,27 +1,14 @@
-from fastapi import FastAPI, HTTPException
-import joblib
-import pandas as pd
-from schemas import ChurnRequest, ChurnResponse
- 
-app = FastAPI(title="Churn Prediction API - v2 (with validation)")
-
-artifact = joblib.load("model/churn_model.joblib")
-model = artifact["model"]
-scaler = artifact["scaler"]
-features = artifact["features"]
- 
- 
-@app.get("/health")
-def health_check():
-    return {"status": "ok"}
+from pydantic import BaseModel, Field
 
 
-@app.post("/predict", response_model=ChurnResponse)
-def predict(request: ChurnRequest):
-    try:
-        X = pd.DataFrame([request.model_dump()])[features]
-        X_scaled = scaler.transform(X)
-        prob = model.predict_proba(X_scaled)[0][1]
-        return {"churn_probability": round(float(prob), 4), "churn_prediction": int(prob > 0.5)}
-    except Exception as e:
-        raise HTTPException(status_code=500, detail=str(e))
+class ChurnRequest(BaseModel):
+    age: int = Field(..., ge=18, le=100, description="Customer age")
+    tenure: int = Field(..., ge=0, le=50, description="Years with the bank")
+    balance: float = Field(..., ge=0, description="Account balance")
+    num_products: int = Field(..., ge=1, le=10, description="Number of bank products held")
+    is_active: int = Field(..., ge=0, le=1, description="1 if active member, else 0")
+
+
+class ChurnResponse(BaseModel):
+    churn_probability: float
+    churn_prediction: int
