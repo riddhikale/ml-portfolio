@@ -15,3 +15,45 @@ jobs:
     defaults:
       run:
         working-directory: MLOps/churn-model-serving
+
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Train and serialize model
+        run: python 01_train_and_serialize.py
+
+      - name: Run API tests
+        run: |
+          python -c "
+          from fastapi.testclient import TestClient
+          from api_with_validation import app
+
+          client = TestClient(app)
+
+          # health check must pass
+          r = client.get('/health')
+          assert r.status_code == 200, f'health check failed: {r.status_code}'
+
+          # valid input must return a prediction
+          r = client.post('/predict', json={'age': 42, 'tenure': 3, 'balance': 60000.0, 'num_products': 2, 'is_active': 1})
+          assert r.status_code == 200, f'valid predict failed: {r.status_code}'
+          assert 'churn_probability' in r.json()
+
+          # missing fields must be rejected cleanly, not crash
+          r = client.post('/predict', json={'age': 42})
+          assert r.status_code == 422, f'validation not working: got {r.status_code}'
+
+          print('All API tests passed.')
+          "
+
+      - name: Build Docker image
+        run: docker build -t churn-api .
