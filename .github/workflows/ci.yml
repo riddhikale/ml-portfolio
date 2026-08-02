@@ -1,0 +1,17 @@
+name: Churn API CI
+
+on:
+  push:
+    paths:
+      - "MLOps/churn-model-serving/**"
+  pull_request:
+    paths:
+      - "MLOps/churn-model-serving/**"
+
+jobs:
+  test-api:
+    runs-on: ubuntu-latest
+
+    defaults:
+      run:
+        working-directory: MLOps/churn-model-serving
