@@ -2,6 +2,7 @@ services:
   - type: web
     name: churn-prediction-api
     runtime: docker
+    rootDir: MLOps/churn-model-serving
     dockerfilePath: ./Dockerfile
     dockerContext: .
     plan: free
