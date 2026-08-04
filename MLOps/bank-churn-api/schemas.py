@@ -13,3 +13,22 @@ class ChurnRequest(BaseModel):
     estimated_salary: float = Field(..., ge=0)
     geography: Literal["France", "Germany", "Spain"]
     gender: Literal["Male", "Female"]
+
+
+def to_model_input(self) -> dict:
+        """Converts the human-friendly request into the one-hot encoded columns
+        the trained model actually expects, matching pd.get_dummies(..., drop_first=True)
+        from the training notebook exactly."""
+        return {
+            "CreditScore": self.credit_score,
+            "Age": self.age,
+            "Tenure": self.tenure,
+            "Balance": self.balance,
+            "NumOfProducts": self.num_of_products,
+            "HasCrCard": self.has_cr_card,
+            "IsActiveMember": self.is_active_member,
+            "EstimatedSalary": self.estimated_salary,
+            "Geography_Germany": 1 if self.geography == "Germany" else 0,
+            "Geography_Spain": 1 if self.geography == "Spain" else 0,
+            "Gender_Male": 1 if self.gender == "Male" else 0,
+        }
