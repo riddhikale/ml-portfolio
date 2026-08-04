@@ -13,3 +13,8 @@ from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score
+
+
+df = pd.read_csv("bank_churn.csv")
+df = df.drop(columns=["RowNumber", "CustomerId", "Surname"])
+df = pd.get_dummies(df, columns=["Geography", "Gender"], drop_first=True)
