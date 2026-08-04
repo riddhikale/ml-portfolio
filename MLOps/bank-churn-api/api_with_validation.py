@@ -5,3 +5,7 @@ from schemas import ChurnRequest, ChurnResponse
  
 app = FastAPI(title="Churn Prediction API - Real Model (Decision Tree)")
 
+artifact = joblib.load("model/churn_model.joblib")
+model = artifact["model"]
+scaler = artifact["scaler"]
+features = artifact["features"]
