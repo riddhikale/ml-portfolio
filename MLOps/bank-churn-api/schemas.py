@@ -16,9 +16,6 @@ class ChurnRequest(BaseModel):
 
 
 def to_model_input(self) -> dict:
-        """Converts the human-friendly request into the one-hot encoded columns
-        the trained model actually expects, matching pd.get_dummies(..., drop_first=True)
-        from the training notebook exactly."""
         return {
             "CreditScore": self.credit_score,
             "Age": self.age,
@@ -32,3 +29,24 @@ def to_model_input(self) -> dict:
             "Geography_Spain": 1 if self.geography == "Spain" else 0,
             "Gender_Male": 1 if self.gender == "Male" else 0,
         }
+
+class Config:
+        json_schema_extra = {
+            "example": {
+                "credit_score": 650,
+                "age": 58,
+                "tenure": 3,
+                "balance": 120000,
+                "num_of_products": 1,
+                "has_cr_card": 1,
+                "is_active_member": 0,
+                "estimated_salary": 90000,
+                "geography": "Germany",
+                "gender": "Female",
+            }
+        }
+ 
+class ChurnResponse(BaseModel):
+    churn_probability: float
+    churn_prediction: int
+ 
