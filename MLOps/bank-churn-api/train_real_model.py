@@ -18,3 +18,11 @@ from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_sc
 df = pd.read_csv("bank_churn.csv")
 df = df.drop(columns=["RowNumber", "CustomerId", "Surname"])
 df = pd.get_dummies(df, columns=["Geography", "Gender"], drop_first=True)
+
+X = df.drop(columns=["Exited"])
+y = df["Exited"]
+FEATURES = list(X.columns)
+ 
+X_train, X_test, y_train, y_test = train_test_split(
+    X, y, test_size=0.2, random_state=42, stratify=y
+)
