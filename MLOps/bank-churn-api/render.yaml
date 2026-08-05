@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: bank-churn-api
+    runtime: docker
+    rootDir: MLOps/bank-churn-api
+    dockerfilePath: ./Dockerfile
+    dockerContext: .
+    plan: free
+    healthCheckPath: /health
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.0
