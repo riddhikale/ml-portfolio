@@ -11,3 +11,24 @@ artifact = joblib.load("model/churn_model.joblib")
 model = artifact["model"]
 scaler = artifact["scaler"]
 features = artifact["features"] 
+
+
+@app.get("/health")
+def health_check():
+    return {"status": "ok"}
+ 
+ 
+@app.post("/predict", response_model=ChurnResponse)
+def predict(request: ChurnRequest):
+    try:
+        row = request.to_model_input()
+        X = pd.DataFrame([row])[features]  # enforce exact training column order
+        X_scaled = scaler.transform(X)
+        prob = model.predict_proba(X_scaled)[0][1]
+        result = {"churn_probability": round(float(prob), 4), "churn_prediction": int(prob > 0.5)}
+ 
+        log_prediction(input_data=request.model_dump(), output_data=result)
+ 
+        return result
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
