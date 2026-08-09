@@ -44,6 +44,10 @@ ML-PORTFOLIO/
 │   ├── PCA_Country_Data.ipynb
 │   └── PCA_Credit_Card_Fraud.ipynb
 │
+├── MLOps/
+│   ├── bank-churn-api/          # real Bank Churn model, deployed live
+│   └── churn-model-serving/     # step-by-step MLOps learning reference
+│
 ├── data/
 ├── requirements.txt
 ├── README.md
