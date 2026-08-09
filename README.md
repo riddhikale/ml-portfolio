@@ -101,6 +101,20 @@ ML-PORTFOLIO/
 
 ---
 
+### ⚙️ MLOps — Deployed Model
+ 
+| Project | What It Demonstrates | Objective |
+| ------- | --------------------- | --------- |
+| Bank Churn Prediction API | Model serialization, FastAPI, Pydantic input validation, Docker, GitHub Actions CI, prediction logging, drift monitoring, live cloud deployment | Take the Bank Churn Decision Tree model (above) from notebook to a real, publicly callable, production-style service |
+ 
+The Classification notebook's Decision Tree model (chosen over Logistic Regression for better recall/F1 on this dataset) is served through a validated REST API, containerized with Docker, tested via CI on every push, and deployed live:
+ 
+- **Live API:** [bank-churn-api-5mrm.onrender.com/docs](https://bank-churn-api-5mrm.onrender.com/docs)
+- **Code:** [`MLOps/bank-churn-api/`](MLOps/bank-churn-api/)
+A second folder, [`MLOps/churn-model-serving/`](MLOps/churn-model-serving/), walks through the same MLOps concepts step-by-step on synthetic data, kept as a learning reference alongside the real deployment above.
+ 
+---
+
 ## 🛠️ Tech Stack
 
 - Python
