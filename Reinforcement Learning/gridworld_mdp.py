@@ -14,3 +14,17 @@ Grid layout (4x4):
  
 S = start, G = goal, T = trap, # = wall (blocked cell)
 """
+
+GRID_SIZE = 4
+START = (0, 0)
+GOAL = (3, 3)
+TRAP = (2, 3)
+WALLS = {(1, 1), (2, 2)}
+ 
+ACTIONS = ["up", "down", "left", "right"]
+ACTION_DELTAS = {
+    "up": (-1, 0),
+    "down": (1, 0),
+    "left": (0, -1),
+    "right": (0, 1),
+}
