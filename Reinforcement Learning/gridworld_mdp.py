@@ -64,3 +64,35 @@ class GridWorld:
             reward, done = -1, False
  
         return next_state, reward, done
+
+if __name__ == "__main__":
+    env = GridWorld()
+    state = env.reset()
+    print(f"Start state: {state}")
+ 
+    # path that reaches the goal (avoids walls at (1,1),(2,2) and trap at (2,3))
+    actions_to_take = ["down", "down", "down", "right", "right", "right"]
+ 
+    total_reward = 0
+    for action in actions_to_take:
+        next_state, reward, done = env.step(action)
+        total_reward += reward
+        print(f"Action: {action:6s} -> State: {next_state}, Reward: {reward}, Done: {done}")
+        if done:
+            break
+ 
+    print(f"\nTotal reward: {total_reward}")
+ 
+    # also show what happens taking a path into the trap, to see both terminal outcomes
+    print("\n--- Now walking into the trap instead ---")
+    state = env.reset()
+    bad_path = ["right", "right", "right", "down", "down"]
+    total_reward = 0
+    for action in bad_path:
+        next_state, reward, done = env.step(action)
+        total_reward += reward
+        print(f"Action: {action:6s} -> State: {next_state}, Reward: {reward}, Done: {done}")
+        if done:
+            break
+    print(f"\nTotal reward: {total_reward}")
+ 
